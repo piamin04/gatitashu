@@ -71,14 +71,51 @@ body {
 .main-title { font-size: 1.875rem; font-weight: 800; color: #ffffff; line-height: 1.25; margin-bottom: 1.5rem; margin-top: 0; }
 .desc { font-size: 0.875rem; font-weight: 500; color: #d1d5db; line-height: 1.625; margin-bottom: 2rem; margin-top: 0; }
 
-.info-card-wrapper { width: 100%; margin-bottom: 2.5rem; }
+.info-card-wrapper { width: 100%; margin-bottom: 1.5rem; }
 .emoji-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
 .info-card-title { font-weight: 700; color: #ffffff; margin-bottom: 0.25rem; font-size: 1rem; margin-top: 0; }
 .info-card-desc { font-size: 0.875rem; color: #d1d5db; line-height: 1.375; margin: 0; }
 
-.bottom-wrapper { margin-top: auto; padding-bottom: 1rem; }
-.btn-yellow { width: 100%; background-color: #FCDA05; color: #0A1931; font-weight: 800; padding: 1rem; border-radius: 9999px; font-size: 1.125rem; box-shadow: 0 0 15px rgba(252,218,5,0.4); margin-bottom: 0.75rem; border: none; cursor: pointer; }
-.btn-helper { font-size: 0.75rem; color: #9ca3af; font-weight: 500; margin: 0; }
+/* 🔥 하단 버튼 및 강조 배지 🔥 */
+.bottom-wrapper { margin-top: auto; padding-bottom: 1rem; display: flex; flex-direction: column; align-items: center; }
+
+.urgency-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4757;
+  color: #ffffff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(255, 71, 87, 0.4);
+  animation: bounce-slight 2s infinite ease-in-out;
+  position: relative;
+}
+
+/* 배지 말풍선 꼬리표 모양 */
+.urgency-badge::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px 6px 0;
+  border-style: solid;
+  border-color: #ff4757 transparent transparent transparent;
+}
+
+.urgency-icon { margin-right: 0.4rem; font-size: 1rem; }
+
+@keyframes bounce-slight {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.btn-yellow { width: 100%; background-color: #FCDA05; color: #0A1931; font-weight: 800; padding: 1.1rem; border-radius: 9999px; font-size: 1.125rem; box-shadow: 0 0 15px rgba(252,218,5,0.4); border: none; cursor: pointer; transition: transform 0.1s; }
+.btn-yellow:active { transform: scale(0.97); }
 
 /* 2. 유세인트 인증 화면 요소 */
 .emoji-large { font-size: 2.25rem; margin-bottom: 1rem; }
@@ -91,7 +128,8 @@ body {
 .form-input:focus { box-shadow: 0 0 0 2px #0A1931; }
 .mb-8-input { margin-bottom: 2rem; }
 
-.btn-navy { width: 100%; background-color: #0A1931; color: #FCDA05; font-weight: 700; padding: 1rem; border-radius: 0.5rem; font-size: 1.125rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: none; cursor: pointer; }
+.btn-navy { width: 100%; background-color: #0A1931; color: #FCDA05; font-weight: 700; padding: 1rem; border-radius: 0.5rem; font-size: 1.125rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: none; cursor: pointer; transition: transform 0.1s;}
+.btn-navy:active { transform: scale(0.97); }
 
 /* 3. 서비스 이용 동의 화면 요소 */
 .terms-title { font-size: 1.25rem; font-weight: 800; color: #0A1931; margin-bottom: 1rem; text-align: center; margin-top: 0; }
@@ -102,7 +140,8 @@ body {
 .custom-checkbox { width: 1.25rem; height: 1.25rem; accent-color: #0A1931; margin-right: 0.75rem; cursor: pointer; }
 .checkbox-text { font-weight: 500; color: #0A1931; }
 
-.btn-submit { width: 100%; background-color: #FCDA05; color: #0A1931; font-weight: 800; padding: 1rem; border-radius: 0.5rem; font-size: 1.125rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: none; cursor: pointer; }
+.btn-submit { width: 100%; background-color: #FCDA05; color: #0A1931; font-weight: 800; padding: 1rem; border-radius: 0.5rem; font-size: 1.125rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: none; cursor: pointer; transition: transform 0.1s;}
+.btn-submit:active { transform: scale(0.97); }
 
 /* 공통 뒤로가기 버튼 */
 .btn-back { margin-top: 1.5rem; font-size: 0.875rem; color: #9ca3af; text-decoration: underline; background: none; border: none; cursor: pointer; }

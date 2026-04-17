@@ -36,7 +36,7 @@ function App() {
       return;
     }
     
-    // 데이터 전송 로직이 들어갈 자리 (현재는 바로 이동)
+    // 데이터 전송 로직이 들어갈 자리
     console.log("저장될 데이터:", formData);
     window.location.href = 'https://open.kakao.com/o/gDVK0oqi';
   };
@@ -48,7 +48,12 @@ function App() {
       {currentPage === 1 && (
         <div className="page text-center">
           <div className="logo-container">
-            <img src="/logo.png" alt="같이타슈 로고" className="logo-img" onError={(e:any) => { e.target.src = 'https://via.placeholder.com/200x60.png?text=Logo+Here' }} />
+            <img 
+              src="/logo.png" 
+              alt="같이타슈 로고" 
+              className="logo-img" 
+              onError={(e:any) => { e.target.src = 'https://via.placeholder.com/200x60.png?text=Logo+Here' }} 
+            />
           </div>
           <h2 className="subtitle">오늘 또 집에 안가게?</h2>
           <h1 className="main-title">
@@ -72,9 +77,14 @@ function App() {
               <p className="info-card-desc">비싼 심야 할증, 이제 동승원들과 1/N로<br/>깔끔하게 나누세요.</p>
             </div>
           </div>
+          
           <div className="bottom-wrapper">
+            {/* 🔥 강조된 유료 전환 안내 배지 🔥 */}
+            <div className="urgency-badge">
+              <span className="urgency-icon">🚨</span> 5/10 이후가 되면 유료로 전환돼요
+            </div>
+            
             <button onClick={goToAuth} className="btn-yellow">지금 무료로 참여하기</button>
-            <p className="btn-helper">5/10 이후가 되면 유료로 전환돼요.</p>
           </div>
         </div>
       )}
