@@ -30,6 +30,12 @@ body {
   animation: fadeIn 0.4s ease; 
 }
 
+.page-no-padding {
+  padding: 0;
+  background-color: #ffffff;
+  color: #333333;
+}
+
 @keyframes fadeIn { 
   from { opacity: 0; transform: translateY(15px); } 
   to { opacity: 1; transform: translateY(0); } 
@@ -95,7 +101,6 @@ body {
   position: relative;
 }
 
-/* 배지 말풍선 꼬리표 모양 */
 .urgency-badge::after {
   content: '';
   position: absolute;
@@ -117,31 +122,95 @@ body {
 .btn-yellow { width: 100%; background-color: #FCDA05; color: #0A1931; font-weight: 800; padding: 1.1rem; border-radius: 9999px; font-size: 1.125rem; box-shadow: 0 0 15px rgba(252,218,5,0.4); border: none; cursor: pointer; transition: transform 0.1s; }
 .btn-yellow:active { transform: scale(0.97); }
 
-/* 2. 유세인트 인증 화면 요소 */
+/* 2. 서비스 이용 동의 화면 (이미지 참고 반영) */
+.terms-header {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  position: relative;
+}
+.terms-header-title {
+  flex: 1;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin: 0;
+  color: #111827;
+  padding-right: 1.5rem; /* 가운데 정렬 보정 */
+}
+.btn-header-back {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #111827;
+  cursor: pointer;
+  padding: 0;
+}
+
+.terms-content-wrapper {
+  padding: 1.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.checkbox-wrapper { display: flex; align-items: center; cursor: pointer; margin-bottom: 1rem; }
+.checkbox-wrapper-all { 
+  display: flex; align-items: center; cursor: pointer; 
+  padding-bottom: 1.25rem; border-bottom: 1px solid #e5e7eb; margin-bottom: 1.25rem;
+}
+.custom-checkbox { 
+  width: 1.5rem; height: 1.5rem; accent-color: #0A1931; 
+  margin-right: 0.75rem; cursor: pointer; 
+}
+.custom-checkbox-all {
+  width: 1.75rem; height: 1.75rem; accent-color: #0A1931;
+  margin-right: 0.75rem; cursor: pointer; 
+}
+.checkbox-text { font-weight: 500; color: #374151; font-size: 1rem; }
+.checkbox-text-all { font-weight: 800; color: #111827; font-size: 1.125rem; }
+
+.terms-box { 
+  background-color: #f9fafb; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 0.5rem; 
+  padding: 1.25rem; 
+  margin-top: 0.5rem;
+  margin-bottom: 2rem; 
+  height: 300px; 
+  overflow-y: auto; 
+  font-size: 0.8rem; 
+  color: #4b5563; 
+  line-height: 1.7; 
+  text-align: left; 
+  white-space: pre-wrap;
+}
+
+.btn-submit-full {
+  width: 100%;
+  background-color: #333333; /* PASS 앱 스타일 다크그레이 */
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1.25rem;
+  font-size: 1.125rem;
+  border: none;
+  cursor: pointer;
+  margin-top: auto;
+  transition: background-color 0.2s;
+}
+.btn-submit-full.active {
+  background-color: #0A1931; /* 활성화 시 네이비 포인트 컬러 적용 */
+  color: #FCDA05;
+}
+
+/* 3. 유세인트 인증 화면 요소 */
 .emoji-large { font-size: 2.25rem; margin-bottom: 0.8rem; }
 .auth-title { font-size: 1.5rem; font-weight: 800; color: #0A1931; margin-bottom: 0.85rem; margin-top: 0; }
 .auth-desc { font-size: 0.875rem; color: #6b7280; margin-bottom: 2.35rem; margin-top: 0; line-height: 1.7; }
 
 .form-container { text-align: left; width: 100%; }
-.form-label { display: block; font-size: 0.75rem; font-weight: 700; color: #4b5563; margin-bottom: 0.25rem; margin-left: 0.25rem; }
-.form-input { width: 100%; background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 1rem; outline: none; }
-.form-input:focus { box-shadow: 0 0 0 2px #0A1931; }
-.mb-8-input { margin-bottom: 2rem; }
-
 .btn-navy { width: 100%; background-color: #0A1931; color: #FCDA05; font-weight: 700; padding: 1rem; border-radius: 0.5rem; font-size: 1.125rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: none; cursor: pointer; transition: transform 0.1s;}
 .btn-navy:active { transform: scale(0.97); }
-
-/* 3. 서비스 이용 동의 화면 요소 */
-.terms-title { font-size: 1.25rem; font-weight: 800; color: #0A1931; margin-bottom: 1rem; text-align: center; margin-top: 0; }
-.terms-box { background-color: #f9fafb; border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; height: 12rem; overflow-y: auto; font-size: 0.75rem; color: #4b5563; line-height: 1.625; text-align: left; }
-.terms-box-title { color: #0A1931; display: block; margin-bottom: 0.5rem; font-weight: bold; }
-
-.checkbox-wrapper { display: flex; align-items: center; margin-bottom: 2rem; cursor: pointer; }
-.custom-checkbox { width: 1.25rem; height: 1.25rem; accent-color: #0A1931; margin-right: 0.75rem; cursor: pointer; }
-.checkbox-text { font-weight: 500; color: #0A1931; }
-
-.btn-submit { width: 100%; background-color: #FCDA05; color: #0A1931; font-weight: 800; padding: 1rem; border-radius: 0.5rem; font-size: 1.125rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: none; cursor: pointer; transition: transform 0.1s;}
-.btn-submit:active { transform: scale(0.97); }
 
 /* 공통 뒤로가기 버튼 */
 .btn-back { margin-top: 1.5rem; font-size: 0.875rem; color: #9ca3af; text-decoration: underline; background: none; border: none; cursor: pointer; }
