@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 
+const usaintLoginBaseUrl = (
+  import.meta.env.VITE_USAINT_LOGIN_BASE_URL ?? 'http://localhost:8000'
+).replace(/\/$/, '');
+
 function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [formData, setFormData] = useState({
@@ -20,12 +24,8 @@ function App() {
 
   const goToAuth = () => setCurrentPage(2);
 
-  const goToTerms = () => {
-    if (!formData.name || !formData.studentId || !formData.department) {
-      alert("이름, 학번, 학과를 모두 입력해주세요.");
-      return;
-    }
-    setCurrentPage(3);
+  const goToUsaintLogin = () => {
+    window.location.href = `${usaintLoginBaseUrl}/login`;
   };
 
   const goBack = () => setCurrentPage(prev => prev - 1);
@@ -95,36 +95,17 @@ function App() {
           <div className="white-card text-center">
             <div className="emoji-large">🏫</div>
             <h2 className="auth-title">유세인트 인증</h2>
-            <p className="auth-desc">안전한 동승을 위해 기본 정보를 입력해주세요.</p>
+            <p className="auth-desc">
+              아래 버튼을 눌러 유세인트 계정으로 로그인하세요.
+              <br />
+              로그인 완료 시 안전한 매칭을 위해 학생 정보는 저장되며,
+              <br />
+              해당 정보는 서비스 목적 외에는 사용되지 않습니다.
+            </p>
             <div className="form-container">
-              <label className="form-label">이름 (본명)</label>
-              <input 
-                type="text" 
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                placeholder="홍길동" 
-                className="form-input"
-              />
-              <label className="form-label">학번</label>
-              <input 
-                type="text" 
-                name="studentId"
-                value={formData.studentId}
-                onChange={handleInputChange}
-                placeholder="20241234" 
-                className="form-input"
-              />
-              <label className="form-label">학과</label>
-              <input 
-                type="text" 
-                name="department"
-                value={formData.department}
-                onChange={handleInputChange}
-                placeholder="소프트웨어학부" 
-                className="form-input mb-8-input"
-              />
-              <button onClick={goToTerms} className="btn-navy">인증하고 넘어가기</button>
+              <button onClick={goToUsaintLogin} className="btn-navy">
+                유세인트 로그인하기
+              </button>
             </div>
           </div>
           <button onClick={goBack} className="btn-back">이전으로 돌아가기</button>

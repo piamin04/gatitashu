@@ -118,9 +118,9 @@ body {
 .btn-yellow:active { transform: scale(0.97); }
 
 /* 2. 유세인트 인증 화면 요소 */
-.emoji-large { font-size: 2.25rem; margin-bottom: 1rem; }
-.auth-title { font-size: 1.5rem; font-weight: 800; color: #0A1931; margin-bottom: 0.5rem; margin-top: 0; }
-.auth-desc { font-size: 0.875rem; color: #6b7280; margin-bottom: 2rem; margin-top: 0; }
+.emoji-large { font-size: 2.25rem; margin-bottom: 0.8rem; }
+.auth-title { font-size: 1.5rem; font-weight: 800; color: #0A1931; margin-bottom: 0.85rem; margin-top: 0; }
+.auth-desc { font-size: 0.875rem; color: #6b7280; margin-bottom: 2.35rem; margin-top: 0; line-height: 1.7; }
 
 .form-container { text-align: left; width: 100%; }
 .form-label { display: block; font-size: 0.75rem; font-weight: 700; color: #4b5563; margin-bottom: 0.25rem; margin-left: 0.25rem; }
