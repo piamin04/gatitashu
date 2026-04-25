@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './App.css';
 
+const SMART_ID_LOGIN_URL = 'https://smartid.ssu.ac.kr/Symtra_sso/smln.asp';
+
 const usaintLoginBaseUrl = (
   import.meta.env.VITE_USAINT_LOGIN_BASE_URL ?? 'http://localhost:8000'
 ).replace(/\/$/, '');
@@ -31,10 +33,15 @@ function App() {
   };
 
   const goToUsaintLogin = () => {
+    const callbackPath = formData.consent
+      ? '/auth/callback/consent-true'
+      : '/auth/callback';
+    const callbackUrl = `${usaintLoginBaseUrl}${callbackPath}`;
     const params = new URLSearchParams({
-      consent: String(formData.consent),
+      apiReturnUrl: callbackUrl,
     });
-    window.location.href = `${usaintLoginBaseUrl}/login?${params.toString()}`;
+
+    window.location.href = `${SMART_ID_LOGIN_URL}?${params.toString()}`;
   };
 
   const goBack = () => setCurrentPage(prev => prev - 1);
