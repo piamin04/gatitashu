@@ -31,7 +31,10 @@ function App() {
   };
 
   const goToUsaintLogin = () => {
-    window.location.href = `${usaintLoginBaseUrl}/login`;
+    const params = new URLSearchParams({
+      consent: String(formData.consent),
+    });
+    window.location.href = `${usaintLoginBaseUrl}/login?${params.toString()}`;
   };
 
   const goBack = () => setCurrentPage(prev => prev - 1);
