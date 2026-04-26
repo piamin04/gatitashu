@@ -100,7 +100,7 @@ function App() {
                 onChange={handleAgreeAllChange}
                 className="custom-checkbox-all"
               />
-              <span className="checkbox-text-all">약관에 전체동의 (선택사항 포함)</span>
+              <span className="checkbox-text-all">약관에 전체동의</span>
             </label>
 
             <label className="checkbox-wrapper">
@@ -173,7 +173,9 @@ function App() {
             <p className="auth-desc">
               아래 버튼을 눌러 유세인트 계정으로 로그인하세요.
               <br />
-              로그인 완료 시 안전한 매칭을 위해 학생 정보는 저장되며,
+              로그인 완료 시 안전한 매칭을 위해 
+              <br />
+              학생 정보는 저장되며,
               <br />
               해당 정보는 서비스 목적 외에는 사용되지 않습니다.
             </p>
