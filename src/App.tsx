@@ -36,9 +36,15 @@ function App() {
     const callbackPath = formData.consent
       ? '/auth/callback/consent-true'
       : '/auth/callback';
-    const callbackUrl = `${usaintLoginBaseUrl}${callbackPath}`;
+    const flowId =
+      typeof crypto !== 'undefined' && 'randomUUID' in crypto
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    const callbackUrl = new URL(`${usaintLoginBaseUrl}${callbackPath}`);
+    callbackUrl.searchParams.set('authStartedAt', String(Date.now()));
+    callbackUrl.searchParams.set('flowId', flowId);
     const params = new URLSearchParams({
-      apiReturnUrl: callbackUrl,
+      apiReturnUrl: callbackUrl.toString(),
     });
 
     window.location.href = `${SMART_ID_LOGIN_URL}?${params.toString()}`;
