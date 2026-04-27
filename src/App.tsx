@@ -33,16 +33,16 @@ function App() {
   };
 
   const goToUsaintLogin = () => {
-    const callbackPath = formData.consent
+    const callbackBasePath = formData.consent
       ? '/auth/callback/consent-true'
       : '/auth/callback';
     const flowId =
       typeof crypto !== 'undefined' && 'randomUUID' in crypto
         ? crypto.randomUUID()
         : `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    const authStartedAt = String(Date.now());
+    const callbackPath = `${callbackBasePath}/timing/${authStartedAt}/${flowId}`;
     const callbackUrl = new URL(`${usaintLoginBaseUrl}${callbackPath}`);
-    callbackUrl.searchParams.set('authStartedAt', String(Date.now()));
-    callbackUrl.searchParams.set('flowId', flowId);
     const params = new URLSearchParams({
       apiReturnUrl: callbackUrl.toString(),
     });
