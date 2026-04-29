@@ -12,26 +12,22 @@ function getInitialUiState() {
     return {
       currentPage: 1,
       consent: false,
-      authError: '',
     };
   }
 
   const params = new URLSearchParams(window.location.search);
   const consent = params.get('consent') === 'true';
-  const authError = params.get('authError') ?? '';
 
   if (params.get('step') === 'auth') {
     return {
       currentPage: 3,
       consent,
-      authError,
     };
   }
 
   return {
     currentPage: 1,
     consent,
-    authError,
   };
 }
 
@@ -41,7 +37,6 @@ function App() {
   const [formData, setFormData] = useState({
     consent: initialUiState.consent
   });
-  const [authError] = useState(initialUiState.authError);
 
   const handleCheckboxChange = (e: any) => {
     setFormData({ consent: e.target.checked });
@@ -225,13 +220,6 @@ function App() {
               <br />
               해당 정보는 서비스 목적 외에는 사용되지 않습니다.
             </p>
-            {authError && (
-              <p className="auth-desc" role="alert">
-                이전 인증이 실패했습니다.
-                <br />
-                {authError}
-              </p>
-            )}
             <div className="form-container">
               <button onClick={goToUsaintLogin} className="btn-navy">
                 유세인트 로그인하기
