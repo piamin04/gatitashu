@@ -115,10 +115,6 @@ function App() {
           </div>
           
           <div className="bottom-wrapper">
-            <div className="urgency-badge">
-              <span className="urgency-icon">🚨</span> 5/10 이후가 되면 유료로 전환돼요
-            </div>
-            
             {/* 무료로 참여하기 클릭 시 약관 페이지(Page 2)로 이동 */}
             <button onClick={goToTerms} className="btn-yellow">지금 무료로 참여하기</button>
           </div>
