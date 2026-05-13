@@ -116,7 +116,7 @@ function App() {
           
           <div className="bottom-wrapper">
             {/* 무료로 참여하기 클릭 시 약관 페이지(Page 2)로 이동 */}
-            <button onClick={goToTerms} className="btn-yellow">지금 무료로 참여하기</button>
+            <button onClick={goToTerms} className="btn-yellow">참여하기</button>
           </div>
         </div>
       )}
